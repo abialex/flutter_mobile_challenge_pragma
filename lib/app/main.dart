@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/app.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/keyboard_visibility_listener/keyboard_visibility_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_listener/app_lifecycle_cubit.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getItApp = GetIt.instance;
@@ -18,6 +19,7 @@ class Main extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getItApp<KeyboardVisibilityCubit>()),
         BlocProvider(create: (context) => getItApp<AppLifecycleCubit>()),
+        BlocProvider(create: (context) => getItApp<CatBloc>()),
       ],
       child: const SafeArea(child: App()),
     );
