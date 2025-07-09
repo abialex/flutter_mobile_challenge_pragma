@@ -9,6 +9,7 @@ import 'package:flutter_mobile_challenge_pragma/app/main.dart';
 class CatBloc extends Bloc<CatEvent, CatState> {
   CatBloc() : super(CatState.initial()) {
     on<CatByPaginationEvent>(catByPaginationEvent);
+    on<CatGetInitialEvent>(catGetInitialEvent);
     on<CatBySearchEvent>(catBySearchEvent);
   }
 
@@ -35,6 +36,16 @@ class CatBloc extends Bloc<CatEvent, CatState> {
         );
       }
     }
+  }
+
+  Future<void> catGetInitialEvent(CatGetInitialEvent event, Emitter<CatState> emit) async {
+    emit(CatState.loading());
+    final result = await catRepository.getCatsByPagination(event.filter);
+
+    result.when(
+      left: (failure) => emit(CatState.failure(failure)),
+      right: (cats) => emit(CatState.catsLoaded(cats: cats, hasReachedMax: true, page: event.filter.page)),
+    );
   }
 
   Future<void> catBySearchEvent(CatBySearchEvent event, Emitter<CatState> emit) async {

@@ -11,7 +11,7 @@ class CatService {
     try {
       const path = 'breeds/';
 
-      final response = await _dio.post(
+      final response = await _dio.get(
         path,
         queryParameters: {
           'page': filterModel.page,
@@ -20,9 +20,7 @@ class CatService {
         },
       );
       var results =
-          (response.data['result'] as List)
-              .map((i) => CatItemListDataModel.fromJson(i as Map<String, dynamic>))
-              .toList();
+          (response.data as List).map((i) => CatItemListDataModel.fromJson(i as Map<String, dynamic>)).toList();
 
       return Either.right(results);
     } catch (e) {
@@ -34,11 +32,9 @@ class CatService {
     try {
       const path = 'breeds/search';
 
-      final response = await _dio.post(path, queryParameters: {'q': search});
+      final response = await _dio.get(path, queryParameters: {'q': search});
       var results =
-          (response.data['result'] as List)
-              .map((i) => CatItemListDataModel.fromJson(i as Map<String, dynamic>))
-              .toList();
+          (response.data as List).map((i) => CatItemListDataModel.fromJson(i as Map<String, dynamic>)).toList();
 
       return Either.right(results);
     } catch (e) {

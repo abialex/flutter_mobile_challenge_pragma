@@ -12,6 +12,7 @@ class CatEvent with _$CatEvent {
   factory CatEvent.failure(String error) = FailureCatEvent;
 
   // events
+  factory CatEvent.catGetInitial(FilterModel filter) = CatGetInitialEvent;
   factory CatEvent.catByPagination(FilterModel filter) = CatByPaginationEvent;
   factory CatEvent.catLoadMore(FilterModel filter) = LoadMoreCatEvent;
   factory CatEvent.catBySearch(String search) = CatBySearchEvent;

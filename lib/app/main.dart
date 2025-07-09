@@ -19,7 +19,7 @@ class Main extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => getItApp<KeyboardVisibilityCubit>()),
         BlocProvider(create: (context) => getItApp<AppLifecycleCubit>()),
-        BlocProvider(create: (context) => getItApp<CatBloc>()),
+        BlocProvider(create: (context) => CatBloc()),
       ],
       child: const SafeArea(child: App()),
     );
