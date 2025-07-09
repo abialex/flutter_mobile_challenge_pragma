@@ -1,0 +1,166 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos_tool/
+.pub-cache/
+build/
+.idea/
+.vscode/
+*.iml
+
+# Generated files
+lib/**/*.g.dart
+lib/**/*.freezed.dart
+lib/**/*.mocks.dart
+lib/**/*.config.dart
+
+# iOS
+ios/Flutter/Generated.xcconfig
+ios/Runner.xcworkspace/
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/ephemeral/
+ios/.flutter-plugins
+ios/.flutter-plugins-dependencies
+ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/
+ios/Runner.xcodeproj/xcuserdata/
+
+# Android
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/key.properties
+android/app/key.jks
+android/app/release/
+android/app/debug/
+android/app/profile/
+android/gradle/
+android/gradlew
+android/gradlew.bat
+android/settings.gradle.kts
+android/build.gradle.kts
+android/app/build.gradle.kts
+
+# Firebase configs (ignore if sensitive or per flavor)
+# Agrega manualmente en cada entorno de desarrollo
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# MacOS/Linux/Windows
+macos/Flutter/ephemeral/
+macos/Pods/
+linux/flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# Web
+web/.dart_tool/
+web/build/
+
+# Others
+.DS_Store
+*.log
+*.lock
+.env
+.env.*
+.env.local
+.env.development
+.env.staging
+.env.production
+
+# VS Code
+.vscode/
+
+# Firebase Emulator data
+firebase-debug.log
+.firebaserc.local
+.firebase/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Test files
+test/**/*.mocks.dart
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE specific files
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# FVM Version Cache
+.fvm/
