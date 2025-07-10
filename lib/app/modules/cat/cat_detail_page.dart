@@ -6,6 +6,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/characteristics_
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/additional_resources_widget.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 
 class CatDetailPage extends StatelessWidget {
   const CatDetailPage({super.key, required this.catDetail});
@@ -36,7 +37,7 @@ class CatDetailPage extends StatelessWidget {
                                 catDetail.image!.url,
                                 fit: BoxFit.cover,
                                 errorBuilder: (context, error, stackTrace) {
-                                  return const Icon(Icons.error, size: 50, color: Colors.red);
+                                  return const Icon(Icons.error, size: 50, color: AppConstColors.red);
                                 },
 
                                 loadingBuilder: (context, child, loadingProgress) {
@@ -73,12 +74,12 @@ class CatDetailPage extends StatelessWidget {
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
                           colors: [
-                            Colors.black.withOpacity(0.45),
-                            Colors.black.withOpacity(0.35),
-                            Colors.black.withOpacity(0.25),
-                            Colors.black.withOpacity(0.05),
+                            AppConstColors.black.withAlpha((0.45 * 255).round()),
+                            AppConstColors.black.withAlpha((0.35 * 255).round()),
+                            AppConstColors.black.withAlpha((0.25 * 255).round()),
+                            AppConstColors.black.withAlpha((0.05 * 255).round()),
 
-                            Colors.transparent,
+                            AppConstColors.transparent,
                           ],
                         ),
                       ),
@@ -92,26 +93,26 @@ class CatDetailPage extends StatelessWidget {
                       children: [
                         Text(
                           catDetail.name,
-                          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: AppConstColors.white, fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 2),
                         Row(
                           children: [
-                            Icon(Icons.location_pin, color: Colors.white, size: 18),
+                            Icon(Icons.location_pin, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
                             Text(
                               catDetail.origin,
-                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
                         Row(
                           children: [
-                            Icon(Icons.watch_later, color: Colors.white, size: 18),
+                            Icon(Icons.watch_later, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
                             Text(
                               '${catDetail.lifeSpan} años',
-                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -136,12 +137,12 @@ class CatDetailPage extends StatelessWidget {
                       children: [
                         Text(
                           'Description:',
-                          style: TextStyle(color: Colors.black87, fontSize: 20, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: AppConstColors.black87, fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 8),
                         Text(
                           catDetail.description,
-                          style: TextStyle(color: Colors.black87, fontSize: 12, fontWeight: FontWeight.w400),
+                          style: TextStyle(color: AppConstColors.black87, fontSize: 12, fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -158,30 +159,30 @@ class CatDetailPage extends StatelessWidget {
                     ),
                     children: [
                       _buildCaracteristica(
-                        color: Colors.yellow,
+                        color: AppConstColors.yellow700,
                         description: '${catDetail.weight.imperial} lbs',
-                        icon: Icon(Icons.monitor_weight, color: Colors.white, size: 25),
+                        icon: Icon(Icons.monitor_weight, color: AppConstColors.white, size: 25),
                         text: 'Weight',
                       ),
                       _buildCaracteristica(
-                        color: Colors.green,
+                        color: AppConstColors.green,
 
                         description: '${catDetail.lifeSpan} years',
-                        icon: Icon(Icons.timer_sharp, color: Colors.white, size: 25),
+                        icon: Icon(Icons.timer_sharp, color: AppConstColors.white, size: 25),
                         text: 'Life span',
                       ),
                       _buildCaracteristica(
-                        color: Colors.red,
+                        color: AppConstColors.red,
 
                         description: catDetail.indoor == 1 ? 'Yes' : 'No',
-                        icon: Icon(Icons.home, color: Colors.white, size: 25),
+                        icon: Icon(Icons.home, color: AppConstColors.white, size: 25),
                         text: 'Homelike',
                       ),
                       _buildCaracteristica(
-                        color: Colors.blue,
+                        color: AppConstColors.blue,
 
                         description: catDetail.suppressedTail == 1 ? 'Yes' : 'No',
-                        icon: Icon(FontAwesomeIcons.scissors, color: Colors.white, size: 20),
+                        icon: Icon(FontAwesomeIcons.scissors, color: AppConstColors.white, size: 20),
                         text: 'Suppressed tail',
                       ),
                     ],
@@ -193,7 +194,7 @@ class CatDetailPage extends StatelessWidget {
                       children: [
                         Text(
                           'Temperamento',
-                          style: TextStyle(color: Colors.black87, fontSize: 20, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: AppConstColors.black87, fontSize: 20, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 8),
                         Wrap(
@@ -201,7 +202,7 @@ class CatDetailPage extends StatelessWidget {
                           children: List.generate(
                             catDetail.temperamentList.length,
                             (value) => Chip(
-                              backgroundColor: Colors.white,
+                              backgroundColor: AppConstColors.white,
                               labelPadding: EdgeInsets.zero,
                               label: Text(
                                 catDetail.temperamentList[value],
@@ -221,27 +222,27 @@ class CatDetailPage extends StatelessWidget {
                         SizedBox(height: 12),
                         CharacteristicsLevelWidget(
                           label: 'Affection',
-                          color: Colors.red,
+                          color: AppConstColors.red,
                           level: catDetail.affectionLevel,
                         ),
                         CharacteristicsLevelWidget(
                           label: 'Intelligence',
-                          color: Colors.green,
+                          color: AppConstColors.green,
                           level: catDetail.intelligence,
                         ),
                         CharacteristicsLevelWidget(
                           label: 'Child friendly',
-                          color: Colors.yellow,
+                          color: AppConstColors.yellow700,
                           level: catDetail.childFriendly,
                         ),
                         CharacteristicsLevelWidget(
                           label: 'Dog friendly',
-                          color: Colors.brown,
+                          color: AppConstColors.brown,
                           level: catDetail.dogFriendly,
                         ),
                         CharacteristicsLevelWidget(
                           label: 'Adaptability',
-                          color: Colors.blue,
+                          color: AppConstColors.blue,
                           level: catDetail.dogFriendly,
                         ),
                       ],
@@ -251,14 +252,14 @@ class CatDetailPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const Text("Additional resources", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        const Text("Health and Care", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                         SizedBox(height: 12),
                         if (catDetail.cfaUrl != null)
                           AdditionalResourcesWidget(
                             icon: Icons.emoji_events, // Trofeo
                             title: "CFA",
                             subtitle: "Official information",
-                            color: Colors.blue,
+                            color: AppConstColors.blue,
                             url: catDetail.cfaUrl!,
                           ),
 
@@ -267,7 +268,7 @@ class CatDetailPage extends StatelessWidget {
                             icon: Icons.medical_services, // Icono de salud
                             title: "VetStreet",
                             subtitle: "Veterinary care",
-                            color: Colors.green,
+                            color: AppConstColors.green,
                             url: catDetail.vetstreetUrl!,
                           ),
                         if (catDetail.vcaHospitalsUrl != null)
@@ -275,7 +276,7 @@ class CatDetailPage extends StatelessWidget {
                             icon: Icons.local_hospital, // Icono de hospital
                             title: "VCA Hospitals",
                             subtitle: "Health guide",
-                            color: Colors.purple,
+                            color: AppConstColors.primaryPurple,
                             url: catDetail.vcaHospitalsUrl!,
                           ),
                         if (catDetail.wikipediaUrl != null)
@@ -283,7 +284,7 @@ class CatDetailPage extends StatelessWidget {
                             icon: Icons.menu_book, // Libro para Wikipedia
                             title: "Wikipedia",
                             subtitle: "History and data",
-                            color: Colors.orange,
+                            color: AppConstColors.orange,
                             url: catDetail.wikipediaUrl!,
                           ),
                       ],
@@ -305,7 +306,7 @@ class CatDetailPage extends StatelessWidget {
     required Color color,
   }) {
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: Colors.white),
+      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: AppConstColors.white),
       child: Center(
         child: Column(
           spacing: 4,

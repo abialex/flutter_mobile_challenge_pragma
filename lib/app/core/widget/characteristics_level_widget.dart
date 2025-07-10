@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 
 class CharacteristicsLevelWidget extends StatelessWidget {
   const CharacteristicsLevelWidget({super.key, required this.label, required this.color, required this.level});
@@ -17,7 +18,7 @@ class CharacteristicsLevelWidget extends StatelessWidget {
             children: List.generate(5, (index) {
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                child: Icon(Icons.circle, size: 16, color: index < level ? color : Colors.grey.shade300),
+                child: Icon(Icons.circle, size: 16, color: index < level ? color : AppConstColors.grey300),
               );
             }),
           ),

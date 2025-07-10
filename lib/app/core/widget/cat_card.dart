@@ -4,6 +4,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.
 import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_routes_enum.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 
 class CatCard extends StatelessWidget {
   const CatCard({super.key, required this.catItem});
@@ -36,7 +37,7 @@ class CatCard extends StatelessWidget {
                                 catItem.image!.url,
                                 fit: BoxFit.cover,
                                 errorBuilder: (context, error, stackTrace) {
-                                  return const Icon(Icons.error, size: 50, color: Colors.red);
+                                  return const Icon(Icons.error, size: 50, color: AppConstColors.red);
                                 },
 
                                 frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
@@ -79,12 +80,12 @@ class CatCard extends StatelessWidget {
                           begin: Alignment.bottomCenter,
                           end: Alignment.topCenter,
                           colors: [
-                            Colors.black.withOpacity(0.45),
-                            Colors.black.withOpacity(0.35),
-                            Colors.black.withOpacity(0.25),
-                            Colors.black.withOpacity(0.05),
+                            AppConstColors.black.withAlpha((0.45 * 255).round()),
+                            AppConstColors.black.withAlpha((0.35 * 255).round()),
+                            AppConstColors.black.withAlpha((0.25 * 255).round()),
+                            AppConstColors.black.withAlpha((0.05 * 255).round()),
 
-                            Colors.transparent,
+                            AppConstColors.transparent,
                           ],
                         ),
                       ),
@@ -98,26 +99,26 @@ class CatCard extends StatelessWidget {
                       children: [
                         Text(
                           catItem.name,
-                          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                          style: TextStyle(color: AppConstColors.white, fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                         SizedBox(height: 2),
                         Row(
                           children: [
-                            Icon(Icons.location_pin, color: Colors.white, size: 18),
+                            Icon(Icons.location_pin, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
                             Text(
                               catItem.origin,
-                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
                         Row(
                           children: [
-                            Icon(Icons.watch_later, color: Colors.white, size: 18),
+                            Icon(Icons.watch_later, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
                             Text(
                               '${catItem.lifeSpan} años',
-                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -163,7 +164,7 @@ class CatCard extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.pets, color: Colors.pink),
+                              Icon(Icons.pets, color: AppConstColors.pink),
                               SizedBox(width: 8),
                               Text('Temperamento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             ],
@@ -177,7 +178,7 @@ class CatCard extends StatelessWidget {
                             children: List.generate(
                               catItem.temperamentList.length.clamp(0, 3),
                               (value) => Chip(
-                                backgroundColor: Colors.white,
+                                backgroundColor: AppConstColors.white,
                                 labelPadding: EdgeInsets.zero,
                                 label: Text(
                                   catItem.temperamentList[value],
@@ -195,7 +196,7 @@ class CatCard extends StatelessWidget {
                       },
                       style: ElevatedButton.styleFrom(
                         padding: EdgeInsets.symmetric(horizontal: 5),
-                        backgroundColor: Colors.purple.withAlpha(205),
+                        backgroundColor: AppConstColors.primaryPurple.withAlpha(205),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                       child: Row(
@@ -205,7 +206,7 @@ class CatCard extends StatelessWidget {
                           //   'Detalle',
                           //   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
                           // ),
-                          const Icon(Icons.remove_red_eye, color: Colors.white, size: 20),
+                          const Icon(Icons.remove_red_eye, color: AppConstColors.white, size: 20),
                         ],
                       ),
                     ),
@@ -215,14 +216,14 @@ class CatCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _buildAttributeRow('Intelligence', catItem.intelligence, Colors.green, Icons.psychology),
+                    _buildAttributeRow('Intelligence', catItem.intelligence, AppConstColors.green, Icons.psychology),
                     _buildAttributeRow(
                       'Energy',
                       catItem.energyLevel,
-                      Colors.yellow.shade700,
+                      AppConstColors.yellow700,
                       Icons.energy_savings_leaf_outlined,
                     ),
-                    _buildAttributeRow('Afecto', catItem.strangerFriendly, Colors.red, Icons.favorite),
+                    _buildAttributeRow('Afecto', catItem.strangerFriendly, AppConstColors.red, Icons.favorite),
                   ],
                 ),
                 const SizedBox(height: 8),

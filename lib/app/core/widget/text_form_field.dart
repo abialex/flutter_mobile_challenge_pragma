@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 
 class TextFormSearchField extends StatelessWidget {
   final String hintText;
@@ -11,9 +12,9 @@ class TextFormSearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withAlpha(240),
+        color: AppConstColors.white.withAlpha(240),
         borderRadius: BorderRadius.circular(15),
-        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(2, 2))],
+        boxShadow: [BoxShadow(color: AppConstColors.black12, blurRadius: 8, offset: Offset(2, 2))],
       ),
       child: TextFormField(
         onFieldSubmitted: (value) {
@@ -22,12 +23,12 @@ class TextFormSearchField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(color: Colors.purple[300]),
-          prefixIcon: Icon(Icons.search, color: Colors.purple[300]),
+          hintStyle: TextStyle(color: AppConstColors.purple300),
+          prefixIcon: Icon(Icons.search, color: AppConstColors.purple300),
           border: InputBorder.none,
           contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 12),
         ),
-        style: TextStyle(color: Colors.black87),
+        style: TextStyle(color: AppConstColors.black87),
       ),
     );
   }

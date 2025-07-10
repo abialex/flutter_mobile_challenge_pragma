@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 
 class AdditionalResourcesWidget extends StatelessWidget {
   const AdditionalResourcesWidget({
@@ -24,13 +25,16 @@ class AdditionalResourcesWidget extends StatelessWidget {
         decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(12)),
         child: Row(
           children: [
-            Icon(icon, color: Colors.white, size: 28),
+            Icon(icon, color: AppConstColors.white, size: 28),
             const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: const TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold)),
-                Text(subtitle, style: const TextStyle(fontSize: 14, color: Colors.white)),
+                Text(
+                  title,
+                  style: const TextStyle(fontSize: 16, color: AppConstColors.white, fontWeight: FontWeight.bold),
+                ),
+                Text(subtitle, style: const TextStyle(fontSize: 14, color: AppConstColors.white)),
               ],
             ),
           ],

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_header_page.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 
 class AppBasePage extends StatelessWidget {
   const AppBasePage({super.key, this.title, this.headerWidget, this.bodyWidget, this.footerWidget});
@@ -18,7 +19,7 @@ class AppBasePage extends StatelessWidget {
         image: DecorationImage(image: AssetImage(AppConstImage.background_body), fit: BoxFit.cover),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
+        backgroundColor: AppConstColors.transparent,
         body: Column(
           children: [
             if (title != null && title!.isNotEmpty)
