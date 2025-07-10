@@ -61,7 +61,42 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
     flutter run --flavor production --target lib/main_production.dart
     ```
 
-    _Nota: Asegúrate de que tu IDE esté configurado para reconocer y lanzar los flavors correctamente (e.g., en VS Code, puedes usar las configuraciones de lanzamiento para cada flavor)._
+    O agregar estes configuracion al launch.json
+
+    ```bash
+    {
+
+    "configurations": [
+      {
+        "name": "execute build runner",
+        "command": "dart run build_runner build --delete-conflicting-outputs",
+        "request": "launch",
+        "type": "node-terminal",
+      },
+      {
+        "name": "Launch development",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main_development.dart",
+        "args": [ "--flavor", "development", "--target", "lib/main_development.dart"]
+      },
+      {
+        "name": "Launch stg",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main_staging.dart",
+        "args": ["--flavor", "stg", "--target", "lib/main_staging.dart"]
+      },
+      {
+        "name": "Launch production",
+        "request": "launch",
+        "type": "dart",
+        "program": "lib/main_production.dart",
+        "args": ["--flavor", "production", "--target", "lib/main_production.dart"]
+        },
+        ]
+    }
+    ```
 
 ## 🏗️ Decisiones Técnicas Clave
 
