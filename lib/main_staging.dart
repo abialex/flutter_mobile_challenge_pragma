@@ -2,7 +2,7 @@ import 'package:flutter_mobile_challenge_pragma/app/config/app_flavor_config.dar
 import 'package:flutter_mobile_challenge_pragma/app/main.dart';
 import 'package:flutter_mobile_challenge_pragma/boostrap.dart';
 
-void main() {
+void main() async {
   AppFlavorConfig.appFlavor = Flavor.STG;
-  bootstrap(() => const Main());
+  await bootstrap(() => const Main());
 }

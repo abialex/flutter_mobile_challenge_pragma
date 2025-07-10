@@ -12,11 +12,11 @@ class AppFlavorConfig {
   static String get urlApp {
     switch (appFlavor!) {
       case Flavor.DEV:
-        return 'http://localhost:3000/api';
+        return 'https://api.thecatapi.com/v1/';
       case Flavor.STG:
-        return 'http://localhost:3000/api';
+        return 'https://api.thecatapi.com/v1/';
       case Flavor.PROD:
-        return 'http://localhost:3000/api';
+        return 'https://api.thecatapi.com/v1/';
     }
   }
 }

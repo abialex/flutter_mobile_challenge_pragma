@@ -7,7 +7,9 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/container/injection_container.dart';
+import 'package:flutter_mobile_challenge_pragma/app/main.dart';
 
 class AppBlocObserver extends BlocObserver {
   AppBlocObserver();
@@ -46,7 +48,9 @@ Future<void> bootstrap(
     () async {
       HttpOverrides.global = MyHttpOverrides();
       WidgetsFlutterBinding.ensureInitialized();
-      await AppDependencyInjection().init();
+      await dotenv.load(fileName: 'assets/env/.env'); // Load environment variables from .env.example file
+
+      await AppDependencyInjection().init(getItApp);
 
       if (TargetPlatform.android == defaultTargetPlatform) {
         // await FirebaseService.init();
