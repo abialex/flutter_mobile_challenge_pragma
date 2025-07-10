@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_gif.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_routes_enum.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
@@ -38,16 +39,22 @@ class CatCard extends StatelessWidget {
                                   return const Icon(Icons.error, size: 50, color: Colors.red);
                                 },
 
-                                loadingBuilder: (context, child, loadingProgress) {
-                                  if (loadingProgress == null) return child;
-                                  return Center(
-                                    child: CircularProgressIndicator(
-                                      value:
-                                          loadingProgress.expectedTotalBytes != null
-                                              ? loadingProgress.cumulativeBytesLoaded /
-                                                  (loadingProgress.expectedTotalBytes ?? 1)
-                                              : null,
-                                    ),
+                                frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+                                  final isLoaded = frame != null || wasSynchronouslyLoaded;
+
+                                  return AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 500),
+                                    child:
+                                        isLoaded
+                                            ? child
+                                            : Center(
+                                              child: Image.asset(
+                                                AppConstGif.loading_cat,
+                                                width: 200,
+                                                height: 200,
+                                                fit: BoxFit.contain,
+                                              ),
+                                            ),
                                   );
                                 },
                               ),
@@ -158,7 +165,6 @@ class CatCard extends StatelessWidget {
                             children: [
                               Icon(Icons.pets, color: Colors.pink),
                               SizedBox(width: 8),
-
                               Text('Temperamento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
                             ],
                           ),

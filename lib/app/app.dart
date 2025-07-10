@@ -6,10 +6,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/keyboard_visibility_listener/keyboard_visibility_listener.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_listener/app_lifecycle_listener.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_gif.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_go_router.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   const App({super.key});
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  bool _isPrecached = false;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_isPrecached) {
+      precacheImage(AssetImage(AppConstGif.loading_cat), context);
+      _isPrecached = true;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
