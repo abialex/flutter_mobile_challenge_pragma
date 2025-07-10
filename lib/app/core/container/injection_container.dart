@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/app_flavor_config.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/keyboard_visibility_listener/keyboard_visibility_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_listener/app_lifecycle_cubit.dart';
+import 'package:flutter_mobile_challenge_pragma/app/config/widget/http_error_listener/http_error_bloc/http_error_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/interceptor/dio_header_interceptor.dart';
 import 'package:flutter_mobile_challenge_pragma/app/data/repository/cat_repository.dart';
@@ -33,7 +34,6 @@ class AppDependencyInjection {
     }
 
     getItApp.registerLazySingleton<Dio>(() => dio);
-    dio.interceptors.add(DioHeaderInterceptor());
 
     // Service
     getItApp.registerLazySingleton<CatService>(CatService.new);
@@ -45,5 +45,8 @@ class AppDependencyInjection {
     getItApp.registerSingleton<KeyboardVisibilityCubit>(KeyboardVisibilityCubit());
     getItApp.registerSingleton<AppLifecycleCubit>(AppLifecycleCubit());
     getItApp.registerSingleton<CanPopCubit>(CanPopCubit());
+    getItApp.registerSingleton<HttpErrorBloc>(HttpErrorBloc());
+
+    dio.interceptors.add(DioHeaderInterceptor());
   }
 }

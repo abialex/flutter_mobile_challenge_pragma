@@ -8,6 +8,7 @@ import 'package:flutter_mobile_challenge_pragma/app/config/widget/keyboard_visib
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_listener/app_lifecycle_listener.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_gif.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_go_router.dart';
+import 'package:flutter_mobile_challenge_pragma/app/config/widget/http_error_listener/http_error_listener.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -51,52 +52,14 @@ class _AppState extends State<App> {
           PointerDeviceKind.unknown,
         },
       ),
-      title: 'ERP',
-      builder: (context, child) {
+      title: 'Catbreeds',
+      builder: (_, child) {
         return AppLifecycleHandler(
           child: AppKeyboardVisibilityListener(
-            child: MediaQuery(
-              data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.1)),
-              child: Stack(
-                children: [
-                  child!,
-                  // const PdfVistaPreviaDialog(),
-                  // BlocBuilder<LoaderCubit, bool>(
-                  //   builder: (context, state) {
-                  //     if (state) {
-                  //       return const CustomLoader();
-                  //     } else {
-                  //       return const SizedBox.shrink();
-                  //     }
-                  //   },
-                  // ),
-                  // BlocBuilder<DialogAlertCubit, DialogAlertState>(
-                  //   builder: (context, state) {
-                  //     if (state.show) {
-                  //       return const DialogAlertPage();
-                  //     } else {
-                  //       return const SizedBox.shrink();
-                  //     }
-                  //   },
-                  // ),
-                  // MultiBlocListener(
-                  //   listeners: [
-
-                  //     BlocListener<SunatConsultaBloc, SunatConsultaState>(
-                  //       listener: (context, state) {
-                  //         // final loader = context.read<LoaderCubit>();
-                  //         final dialog = context.read<DialogAlertCubit>();
-                  //         state.mapOrNull(
-                  //           failure: (value) {
-                  //             dialog.showErrorAlert(texto: value.error);
-                  //           },
-                  //         );
-                  //       },
-                  //     ),
-                  //   ],
-                  //   child: Container(),
-                  // ),
-                ],
+            child: AppHttpErrorListener(
+              child: MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1)),
+                child: Stack(children: [child!]),
               ),
             ),
           ),

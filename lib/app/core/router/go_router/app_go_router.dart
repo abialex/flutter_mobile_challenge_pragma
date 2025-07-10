@@ -9,7 +9,9 @@ import 'package:flutter_mobile_challenge_pragma/app/modules/leading/leading_page
 import 'package:flutter_mobile_challenge_pragma/app/modules/splash/splash_page.dart';
 import 'package:go_router/go_router.dart';
 
+final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 final GoRouter appRouter = GoRouter(
+  navigatorKey: rootNavigatorKey,
   // debugLogDiagnostics: true,
   initialLocation: AppRoutes.splash.path,
   observers: [GoRouterObserver()],

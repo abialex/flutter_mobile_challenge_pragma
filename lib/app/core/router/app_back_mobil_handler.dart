@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_dialog_widget.dart';
 
 class AppBackMobilHandler extends StatelessWidget {
   final Widget child;
@@ -27,9 +28,9 @@ class AppBackMobilHandler extends StatelessWidget {
               await showDialog<bool>(
                 context: context,
                 builder:
-                    (context) => AlertDialog(
-                      title: const Text('¿Salir de la app?'),
-                      content: const Text('¿Estás seguro de que quieres salir?'),
+                    (context) => AppDialogWidget(
+                      title: '¿Salir de la app?',
+                      message: '¿Estás seguro de que quieres salir?',
                       actions: [
                         TextButton(onPressed: () => Navigator.of(context).pop(false), child: const Text('Cancelar')),
                         TextButton(onPressed: () => Navigator.of(context).pop(true), child: const Text('Salir')),
