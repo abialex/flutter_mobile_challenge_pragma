@@ -31,10 +31,22 @@ class CatBloc extends Bloc<CatEvent, CatState> {
             final catsNews = catsCurrent + catsAdditional;
             final hasReachedMaxNew = catsAdditional.isNotEmpty;
 
-            emit(CatState.catsLoaded(cats: catsNews, hasReachedMax: hasReachedMaxNew, page: newFilter.page));
+            emit(
+              CatState.catsLoaded(
+                cats: catsNews,
+                hasReachedMax: hasReachedMaxNew,
+                page: newFilter.page,
+                isRecovery: false,
+              ),
+            );
           },
         );
       }
+    }
+    if (currentState is CatsListSearchLoadedState) {
+      emit(
+        CatState.catsLoaded(cats: event.catsRecovery, hasReachedMax: true, page: event.filter.page, isRecovery: true),
+      );
     }
   }
 
@@ -44,7 +56,9 @@ class CatBloc extends Bloc<CatEvent, CatState> {
 
     result.when(
       left: (failure) => emit(CatState.failure(failure)),
-      right: (cats) => emit(CatState.catsLoaded(cats: cats, hasReachedMax: true, page: event.filter.page)),
+      right:
+          (cats) =>
+              emit(CatState.catsLoaded(cats: cats, hasReachedMax: true, page: event.filter.page, isRecovery: false)),
     );
   }
 

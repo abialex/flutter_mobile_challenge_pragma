@@ -51,6 +51,12 @@ class CatItemListDataModel with _$CatItemListDataModel {
   factory CatItemListDataModel.fromJson(Map<String, dynamic> json) => _$CatItemListDataModelFromJson(json);
 }
 
+extension CatItemListDataModelX on CatItemListDataModel {
+  List<String> get temperamentList {
+    return temperament.split(',').map((e) => e.trim()).where((e) => e.isNotEmpty).toList();
+  }
+}
+
 @freezed
 class Weight with _$Weight {
   const factory Weight({required String imperial, required String metric}) = _Weight;

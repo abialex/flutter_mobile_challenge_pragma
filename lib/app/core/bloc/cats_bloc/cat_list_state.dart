@@ -16,6 +16,7 @@ class CatState with _$CatState {
   factory CatState.catsLoaded({
     required List<CatItemListDataModel> cats,
     required bool hasReachedMax,
+    required bool isRecovery,
     required int page,
   }) = CatsListLoadedState;
   factory CatState.catsSearchLoaded(List<CatItemListDataModel> cats) = CatsListSearchLoadedState;

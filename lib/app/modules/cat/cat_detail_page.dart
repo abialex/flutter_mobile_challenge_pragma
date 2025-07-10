@@ -10,6 +10,7 @@ class CatDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBasePage(
+      title: 'Cat Detail',
       bodyWidget: Column(
         children: [
           Text(catDetail.name),
