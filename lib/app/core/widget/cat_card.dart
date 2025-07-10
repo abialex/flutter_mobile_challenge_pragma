@@ -142,27 +142,58 @@ class CatCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Icon(Icons.pets, color: Colors.pink),
-                    SizedBox(width: 8),
-                    Text('Temperamento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-                    Spacer(),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        spacing: 4,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(Icons.pets, color: Colors.pink),
+                              SizedBox(width: 8),
+
+                              Text('Temperamento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                            ],
+                          ),
+                          Wrap(
+                            spacing: 4,
+                            alignment: WrapAlignment.start,
+                            crossAxisAlignment: WrapCrossAlignment.start,
+                            runAlignment: WrapAlignment.start,
+
+                            children: List.generate(
+                              catItem.temperamentList.length.clamp(0, 3),
+                              (value) => Chip(
+                                backgroundColor: Colors.white,
+                                labelPadding: EdgeInsets.zero,
+                                label: Text(
+                                  catItem.temperamentList[value],
+                                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                     ElevatedButton(
                       onPressed: () {
                         context.pushNamed(AppRoutes.catDetail.name, extra: catItem);
                       },
                       style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        padding: EdgeInsets.symmetric(horizontal: 5),
                         backgroundColor: Colors.purple.withAlpha(205),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                       ),
                       child: Row(
-                        spacing: 5,
+                        // spacing: 5,
                         children: [
                           // Text(
                           //   'Detalle',
@@ -172,25 +203,9 @@ class CatCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 8),
                   ],
                 ),
                 const SizedBox(height: 8),
-                Wrap(
-                  spacing: 4,
-                  children: List.generate(
-                    catItem.temperamentList.length.clamp(0, 3),
-                    (value) => Chip(
-                      backgroundColor: Colors.white,
-                      labelPadding: EdgeInsets.zero,
-                      label: Text(
-                        catItem.temperamentList[value],
-                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
