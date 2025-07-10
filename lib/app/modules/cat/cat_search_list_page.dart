@@ -56,6 +56,17 @@ class _CatSearchListPageState extends State<CatSearchListPage> {
             Expanded(
               child: BlocBuilder<CatBloc, CatState>(
                 builder: (context, state) {
+                  if (state is CatLoadingState) {
+                    return Center(child: CircularProgressIndicator(color: Colors.white));
+                  }
+                  if (catsCurrent.isEmpty) {
+                    return Center(
+                      child: Text(
+                        'No cats found',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 32),
+                      ),
+                    );
+                  }
                   return ListView.builder(
                     shrinkWrap: true,
                     itemCount: catsCurrent.length,
