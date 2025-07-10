@@ -46,19 +46,19 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
     Para ejecutar en `development`:
 
     ```bash
-    flutter run -t lib/main_development.dart --flavor development
+    flutter run --flavor development --target lib/main_development.dart
     ```
 
     Para ejecutar en `staging`:
 
     ```bash
-    flutter run -t lib/main_staging.dart --flavor stg
+    flutter run --flavor stg --target lib/main_staging.dart
     ```
 
     Para ejecutar en `production`:
 
     ```bash
-    flutter run -t lib/main_production.dart --flavor production
+    flutter run --flavor production --target lib/main_production.dart
     ```
 
     _Nota: Asegúrate de que tu IDE esté configurado para reconocer y lanzar los flavors correctamente (e.g., en VS Code, puedes usar las configuraciones de lanzamiento para cada flavor)._
