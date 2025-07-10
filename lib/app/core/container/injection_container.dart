@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/app_flavor_config.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/keyboard_visibility_listener/keyboard_visibility_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_listener/app_lifecycle_cubit.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/interceptor/dio_header_interceptor.dart';
 import 'package:flutter_mobile_challenge_pragma/app/data/repository/cat_repository.dart';
 import 'package:flutter_mobile_challenge_pragma/app/data/services/cat_service.dart';
@@ -43,5 +44,6 @@ class AppDependencyInjection {
     // blocs-cubits
     getItApp.registerSingleton<KeyboardVisibilityCubit>(KeyboardVisibilityCubit());
     getItApp.registerSingleton<AppLifecycleCubit>(AppLifecycleCubit());
+    getItApp.registerSingleton<CanPopCubit>(CanPopCubit());
   }
 }

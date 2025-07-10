@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
+import 'package:go_router/go_router.dart';
 
 class AppHeaderPage extends StatelessWidget {
   const AppHeaderPage({super.key, required this.title});
@@ -18,7 +21,23 @@ class AppHeaderPage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(child: Container()), // Spacer to center the title
+          Expanded(
+            child: Center(
+              child:
+                  context.watch<CanPopCubit>().state
+                      ? CircleAvatar(
+                        radius: 15,
+                        child: IconButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            context.pop();
+                          },
+                          icon: Icon(Icons.arrow_left_rounded, size: 25),
+                        ),
+                      )
+                      : SizedBox.shrink(),
+            ),
+          ), // Spacer to center the title
           Text(title, style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold)),
           Expanded(child: Container()), // Spacer to center the title
           // Icon(Icons.search, color: Colors.black, size: 28),

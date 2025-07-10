@@ -72,7 +72,7 @@ class _LeadingPageState extends State<LeadingPage> {
             TextFormSearchField(
               controller: searchCtrl,
               onFieldSubmitted: (value) {
-                context.push(AppRoutes.catSearchList.path, extra: value).then((value) {
+                context.pushNamed(AppRoutes.catSearchList.name, extra: value).then((value) {
                   searchCtrl.text = '';
                 });
               },

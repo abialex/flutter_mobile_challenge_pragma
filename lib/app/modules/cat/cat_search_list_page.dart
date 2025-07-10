@@ -7,7 +7,6 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_base_page.da
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/cat_card.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/text_form_field.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
-import 'package:go_router/go_router.dart';
 
 class CatSearchListPage extends StatefulWidget {
   const CatSearchListPage({super.key, this.searchQuery});
@@ -67,12 +66,6 @@ class _CatSearchListPageState extends State<CatSearchListPage> {
                   );
                 },
               ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                context.pop();
-              },
-              child: Text('Atras'),
             ),
           ],
         ),

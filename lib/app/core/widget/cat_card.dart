@@ -149,7 +149,7 @@ class CatCard extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: ElevatedButton(
                     onPressed: () {
-                      context.push(AppRoutes.catDetail.path, extra: catItem);
+                      context.pushNamed(AppRoutes.catDetail.name, extra: catItem);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.purple,
