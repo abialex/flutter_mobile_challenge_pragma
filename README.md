@@ -8,6 +8,14 @@
 | `dev_alex` | Rama de desarrollo activa (features, mejoras y pruebas personales).        |
 | `main`     | **Versión final entregable. Ejecutar esta rama para evaluar el proyecto.** |
 
+## 🐾 Vista previa
+
+<p align="center">
+  <img src="https://i.postimg.cc/BbYX6TRC/temp-Imagesxz4zg.avif" alt="Demo 1" width="300"/>
+  &nbsp;&nbsp;
+  <img src="https://i.postimg.cc/7PG6Mzvj/temp-Imaget-TJo-RR.avif" alt="Demo 2" width="300"/>
+</p>
+
 ## Requisitos
 
 - Flutter 3.29.3 (recomendado con FVM)
