@@ -17,99 +17,129 @@ class CatCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Stack(
-            children: [
-              ClipRRect(
-                borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-                child:
-                    catItem.image?.url != null
-                        ? AspectRatio(
-                          aspectRatio: catItem.image!.width / catItem.image!.height,
-                          child: Image.network(
-                            gaplessPlayback: true,
-                            catItem.image!.url,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              return const Icon(Icons.error, size: 50, color: Colors.red);
-                            },
+          Hero(
+            tag: catItem.id,
+            child: Material(
+              type: MaterialType.transparency,
 
-                            loadingBuilder: (context, child, loadingProgress) {
-                              if (loadingProgress == null) return child;
-                              return Center(
-                                child: CircularProgressIndicator(
-                                  value:
-                                      loadingProgress.expectedTotalBytes != null
-                                          ? loadingProgress.cumulativeBytesLoaded /
-                                              (loadingProgress.expectedTotalBytes ?? 1)
-                                          : null,
-                                ),
-                              );
-                            },
-                          ),
-                        )
-                        : AspectRatio(
-                          aspectRatio: 1.25,
-                          child: Image.asset(AppConstImage.cat_404, fit: BoxFit.cover, gaplessPlayback: true),
+              child: Stack(
+                children: [
+                  ClipRRect(
+                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
+                    child:
+                        catItem.image?.url != null
+                            ? AspectRatio(
+                              aspectRatio: catItem.image!.width / catItem.image!.height,
+                              child: Image.network(
+                                gaplessPlayback: true,
+                                catItem.image!.url,
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return const Icon(Icons.error, size: 50, color: Colors.red);
+                                },
+
+                                loadingBuilder: (context, child, loadingProgress) {
+                                  if (loadingProgress == null) return child;
+                                  return Center(
+                                    child: CircularProgressIndicator(
+                                      value:
+                                          loadingProgress.expectedTotalBytes != null
+                                              ? loadingProgress.cumulativeBytesLoaded /
+                                                  (loadingProgress.expectedTotalBytes ?? 1)
+                                              : null,
+                                    ),
+                                  );
+                                },
+                              ),
+                            )
+                            : AspectRatio(
+                              aspectRatio: 1.25,
+                              child: Image.asset(AppConstImage.cat_404, fit: BoxFit.cover, gaplessPlayback: true),
+                            ),
+                  ),
+                  Positioned(
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    top: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(0),
+                          topRight: Radius.circular(0),
                         ),
-              ),
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                top: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: const BorderRadius.only(topLeft: Radius.circular(0), topRight: Radius.circular(0)),
-                    gradient: LinearGradient(
-                      begin: Alignment.bottomCenter,
-                      end: Alignment.topCenter,
-                      colors: [
-                        Colors.black.withOpacity(0.45),
-                        Colors.black.withOpacity(0.35),
-                        Colors.black.withOpacity(0.25),
-                        Colors.black.withOpacity(0.05),
+                        gradient: LinearGradient(
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                          colors: [
+                            Colors.black.withOpacity(0.45),
+                            Colors.black.withOpacity(0.35),
+                            Colors.black.withOpacity(0.25),
+                            Colors.black.withOpacity(0.05),
 
-                        Colors.transparent,
+                            Colors.transparent,
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 16,
+                    bottom: 12,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          catItem.name,
+                          style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 2),
+                        Row(
+                          children: [
+                            Icon(Icons.location_pin, color: Colors.white, size: 18),
+                            SizedBox(width: 4),
+                            Text(
+                              catItem.origin,
+                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.watch_later, color: Colors.white, size: 18),
+                            SizedBox(width: 4),
+                            Text(
+                              '${catItem.lifeSpan} años',
+                              style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
-                ),
+
+                  // Positioned(
+                  //   right: 16,
+                  //   bottom: 8,
+                  //   child: Align(
+                  //     alignment: Alignment.centerRight,
+                  //     child: ElevatedButton(
+                  //       onPressed: () {
+                  //         context.pushNamed(AppRoutes.catDetail.name, extra: catItem);
+                  //       },
+                  //       style: ElevatedButton.styleFrom(
+                  //         padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+
+                  //         backgroundColor: Colors.purple.withAlpha(205),
+                  //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  //       ),
+                  //       child: const Icon(Icons.remove_red_eye, color: Colors.white),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
               ),
-              Positioned(
-                left: 16,
-                bottom: 12,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      catItem.name,
-                      style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 2),
-                    Row(
-                      children: [
-                        Icon(Icons.location_pin, color: Colors.white, size: 18),
-                        SizedBox(width: 4),
-                        Text(
-                          catItem.origin,
-                          style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Icon(Icons.watch_later, color: Colors.white, size: 18),
-                        SizedBox(width: 4),
-                        Text(
-                          '${catItem.lifeSpan} años',
-                          style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -117,10 +147,32 @@ class CatCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Icon(Icons.pets, color: Colors.pink),
                     SizedBox(width: 8),
                     Text('Temperamento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    Spacer(),
+                    ElevatedButton(
+                      onPressed: () {
+                        context.pushNamed(AppRoutes.catDetail.name, extra: catItem);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 8),
+                        backgroundColor: Colors.purple.withAlpha(205),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                      ),
+                      child: Row(
+                        spacing: 5,
+                        children: [
+                          // Text(
+                          //   'Detalle',
+                          //   style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 14),
+                          // ),
+                          const Icon(Icons.remove_red_eye, color: Colors.white, size: 20),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: 8),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -139,25 +191,20 @@ class CatCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16),
-                _buildAttributeRow('Intelligence', catItem.intelligence, Colors.green, Icons.psychology),
-                _buildAttributeRow('Energy', catItem.energyLevel, Colors.yellow, Icons.bolt),
-                _buildAttributeRow('Afecto', catItem.strangerFriendly, Colors.red, Icons.favorite),
-
-                const SizedBox(height: 8),
-
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      context.pushNamed(AppRoutes.catDetail.name, extra: catItem);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildAttributeRow('Intelligence', catItem.intelligence, Colors.green, Icons.psychology),
+                    _buildAttributeRow(
+                      'Energy',
+                      catItem.energyLevel,
+                      Colors.yellow.shade700,
+                      Icons.energy_savings_leaf_outlined,
                     ),
-                    child: const Text('Ver Detalles', style: TextStyle(color: Colors.white)),
-                  ),
+                    _buildAttributeRow('Afecto', catItem.strangerFriendly, Colors.red, Icons.favorite),
+                  ],
                 ),
+                const SizedBox(height: 8),
               ],
             ),
           ),
@@ -167,30 +214,35 @@ class CatCard extends StatelessWidget {
   }
 
   Widget _buildAttributeRow(String label, int value, Color color, IconData icon) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Row(
-        children: [
-          Icon(icon, size: 20, color: color),
-          const SizedBox(width: 8),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
-                const SizedBox(height: 4),
-                LinearProgressIndicator(
-                  value: value / 5,
-                  color: color,
-                  backgroundColor: Colors.grey.shade300,
-                  minHeight: 6,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 8),
-          Text('$value/5', style: const TextStyle(fontWeight: FontWeight.w600)),
-        ],
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Column(
+          spacing: 2.5,
+          children: [
+            CircleAvatar(backgroundColor: color.withAlpha(100), child: Icon(icon, size: 25, color: color)),
+
+            const SizedBox(width: 8),
+            Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+
+            // Expanded(
+            //   child: Column(
+            //     crossAxisAlignment: CrossAxisAlignment.start,
+            //     children: [
+            //       const SizedBox(height: 4),
+            //       LinearProgressIndicator(
+            //         value: value / 5,
+            //         color: color,
+            //         backgroundColor: Colors.grey.shade300,
+            //         minHeight: 6,
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            const SizedBox(width: 8),
+            Text('$value/5', style: const TextStyle(fontWeight: FontWeight.w600)),
+          ],
+        ),
       ),
     );
   }
