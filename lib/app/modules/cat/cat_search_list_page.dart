@@ -52,7 +52,6 @@ class _CatSearchListPageState extends State<CatSearchListPage> {
               },
             ),
             SizedBox(height: 10),
-
             Expanded(
               child: BlocBuilder<CatBloc, CatState>(
                 builder: (context, state) {

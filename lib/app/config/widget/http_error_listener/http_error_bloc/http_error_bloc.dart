@@ -14,6 +14,7 @@ class HttpErrorBloc extends Bloc<HttpErrorEvent, HttpErrorState> {
     on<InternalServerErrorEvent>(internalServerErrorEvent);
     on<ManyRequestEvent>(manyRequestEvent);
     on<OtherErrorEvent>(otherErrorEvent);
+    on<WebViewErrorEvent>(webViewErrorEvent);
   }
 
   Future<void> initialEvent(InitialEvent event, Emitter<HttpErrorState> emit) async {
@@ -50,5 +51,9 @@ class HttpErrorBloc extends Bloc<HttpErrorEvent, HttpErrorState> {
 
   Future<void> otherErrorEvent(OtherErrorEvent event, Emitter<HttpErrorState> emit) async {
     emit(HttpErrorState.otherError());
+  }
+
+  Future<void> webViewErrorEvent(WebViewErrorEvent event, Emitter<HttpErrorState> emit) async {
+    emit(HttpErrorState.webviewError(event.error));
   }
 }

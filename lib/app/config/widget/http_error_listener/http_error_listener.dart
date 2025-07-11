@@ -72,6 +72,11 @@ class AppHttpErrorListener extends StatelessWidget {
                     (___) =>
                         const AppDialogWidget(title: 'Error desconocido', message: 'Ha ocurrido un error inesperado'),
               ),
+          webviewError:
+              (s) => showDialog(
+                context: navigatorContext,
+                builder: (___) => AppDialogWidget(title: 'Error en la página embebida', message: s.error),
+              ),
         );
       },
       child: child,

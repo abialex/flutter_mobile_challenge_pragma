@@ -16,4 +16,5 @@ class HttpErrorState with _$HttpErrorState {
   factory HttpErrorState.manyRequest() = ManyRequestState;
   factory HttpErrorState.unavailableService() = UnavailableServiceState;
   factory HttpErrorState.otherError() = OtherErrorState;
+  factory HttpErrorState.webviewError(String error) = WebViewErrorState;
 }
