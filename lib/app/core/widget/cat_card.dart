@@ -6,6 +6,7 @@ import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 
 class CatCard extends StatelessWidget {
   const CatCard({super.key, required this.catItem});
@@ -103,11 +104,11 @@ class CatCard extends StatelessWidget {
                           color: AppConstColors.white,
                           fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(height: 2),
+                        AppBox.h2,
                         Row(
                           children: [
                             Icon(Icons.location_pin, color: AppConstColors.white, size: 18),
-                            SizedBox(width: 4),
+                            AppBox.w4,
                             AppConstText.smallText(
                               text: catItem.origin,
                               color: AppConstColors.white,
@@ -118,7 +119,7 @@ class CatCard extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.watch_later, color: AppConstColors.white, size: 18),
-                            SizedBox(width: 4),
+                            AppBox.w4,
                             AppConstText.smallText(
                               text: '${catItem.lifeSpan} años',
                               color: AppConstColors.white,
@@ -169,7 +170,7 @@ class CatCard extends StatelessWidget {
                           Row(
                             children: [
                               Icon(Icons.pets, color: AppConstColors.pink),
-                              SizedBox(width: 8),
+                              AppBox.w8,
                               AppConstText.mediumText(text: 'Temperamento', fontWeight: FontWeight.bold),
                             ],
                           ),
@@ -216,7 +217,7 @@ class CatCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 8),
+                AppBox.h8,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -230,7 +231,7 @@ class CatCard extends StatelessWidget {
                     _buildAttributeRow('Afecto', catItem.strangerFriendly, AppConstColors.red, Icons.favorite),
                   ],
                 ),
-                const SizedBox(height: 8),
+                AppBox.h8,
               ],
             ),
           ),
@@ -247,25 +248,7 @@ class CatCard extends StatelessWidget {
           spacing: 2.5,
           children: [
             CircleAvatar(backgroundColor: color.withAlpha(100), child: Icon(icon, size: 25, color: color)),
-
-            const SizedBox(width: 8),
-            AppConstText.smallText(text: label, fontWeight: FontWeight.w600),
-
-            // Expanded(
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
-            //       const SizedBox(height: 4),
-            //       LinearProgressIndicator(
-            //         value: value / 5,
-            //         color: color,
-            //         backgroundColor: Colors.grey.shade300,
-            //         minHeight: 6,
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            const SizedBox(width: 8),
+            AppBox.w8,
             AppConstText.mediumText(text: '$value/5', fontWeight: FontWeight.w600),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 
 class AdditionalResourcesWidget extends StatelessWidget {
   const AdditionalResourcesWidget({
@@ -27,7 +28,7 @@ class AdditionalResourcesWidget extends StatelessWidget {
         child: Row(
           children: [
             Icon(icon, color: AppConstColors.white, size: 28),
-            const SizedBox(width: 16),
+            AppBox.w16,
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

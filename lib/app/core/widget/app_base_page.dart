@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_header_page.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 
 class AppBasePage extends StatelessWidget {
   const AppBasePage({super.key, this.title, this.headerWidget, this.bodyWidget, this.footerWidget});
@@ -26,7 +27,7 @@ class AppBasePage extends StatelessWidget {
               Padding(padding: const EdgeInsets.symmetric(horizontal: 24), child: AppHeaderPage(title: title!))
             else
               const SizedBox.shrink(),
-            SizedBox(height: 24.0),
+            AppBox.h24,
             if (headerWidget == null) const SizedBox.shrink() else headerWidget!,
             if (bodyWidget == null)
               const SizedBox.shrink()

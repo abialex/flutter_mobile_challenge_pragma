@@ -12,6 +12,7 @@ import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 
 class LeadingPage extends StatefulWidget {
   const LeadingPage({super.key});
@@ -80,7 +81,7 @@ class _LeadingPageState extends State<LeadingPage> {
               },
             ),
 
-            SizedBox(height: 10),
+            AppBox.h10,
             Expanded(
               child: BlocBuilder<CatBloc, CatState>(
                 builder: (context, state) {

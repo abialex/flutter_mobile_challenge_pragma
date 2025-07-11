@@ -8,6 +8,7 @@ import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 
 class CatDetailPage extends StatelessWidget {
   const CatDetailPage({super.key, required this.catDetail});
@@ -97,11 +98,11 @@ class CatDetailPage extends StatelessWidget {
                           color: AppConstColors.white,
                           fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(height: 2),
+                        AppBox.h2,
                         Row(
                           children: [
                             Icon(Icons.location_pin, color: AppConstColors.white, size: 18),
-                            SizedBox(width: 4),
+                            AppBox.w4,
                             AppConstText.smallText(
                               text: catDetail.origin,
                               color: AppConstColors.white,
@@ -112,7 +113,7 @@ class CatDetailPage extends StatelessWidget {
                         Row(
                           children: [
                             Icon(Icons.watch_later, color: AppConstColors.white, size: 18),
-                            SizedBox(width: 4),
+                            AppBox.w4,
                             AppConstText.smallText(
                               text: '${catDetail.lifeSpan} años',
                               color: AppConstColors.white,
@@ -144,7 +145,7 @@ class CatDetailPage extends StatelessWidget {
                           color: AppConstColors.black87,
                           fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(height: 8),
+                        AppBox.h8,
                         AppConstText.miniText(
                           text: catDetail.description,
                           color: AppConstColors.black87,
@@ -203,7 +204,7 @@ class CatDetailPage extends StatelessWidget {
                           color: AppConstColors.black87,
                           fontWeight: FontWeight.bold,
                         ),
-                        SizedBox(height: 8),
+                        AppBox.h8,
                         Wrap(
                           spacing: 4,
                           children: List.generate(
@@ -226,7 +227,7 @@ class CatDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         AppConstText.titleMedium(text: "Personality trait", fontWeight: FontWeight.bold),
-                        SizedBox(height: 12),
+                        AppBox.h12,
                         CharacteristicsLevelWidget(
                           label: 'Affection',
                           color: AppConstColors.red,

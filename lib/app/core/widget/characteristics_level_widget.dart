@@ -13,7 +13,7 @@ class CharacteristicsLevelWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6.0),
       child: Row(
         children: [
-          SizedBox(width: 140, child: AppConstText.mediumText(text: label)),
+          SizedBox(width: 140, child: AppConstText.mediumText(text: label, fontWeight: FontWeight.w500)),
           Spacer(),
           Row(
             children: List.generate(5, (index) {

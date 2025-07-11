@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_event.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_state.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_base_page.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/cat_card.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/text_form_field.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class CatSearchListPage extends StatefulWidget {
@@ -53,8 +54,7 @@ class _CatSearchListPageState extends State<CatSearchListPage> {
                 context.read<CatBloc>().add(CatEvent.catBySearch(value));
               },
             ),
-            SizedBox(height: 10),
-
+            AppBox.h10,
             Expanded(
               child: BlocBuilder<CatBloc, CatState>(
                 builder: (context, state) {
