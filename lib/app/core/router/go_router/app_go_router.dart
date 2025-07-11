@@ -47,8 +47,10 @@ final GoRouter appRouter = GoRouter(
       path: AppRoutes.catResourcesWebView.path,
       name: AppRoutes.catResourcesWebView.name,
       pageBuilder: (context, state) {
-        final url = state.extra as String;
-        return _fadeTransition(state, AppBackMobilHandler(child: CatResourcesWebViewPage(url: url)));
+        final url = (state.extra as dynamic)['url'];
+        final title = (state.extra as dynamic)['title'];
+        ;
+        return _fadeTransition(state, AppBackMobilHandler(child: CatResourcesWebViewPage(url: url, title: title)));
       },
     ),
   ],

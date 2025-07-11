@@ -6,8 +6,9 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_base_page.da
 import 'package:webview_flutter/webview_flutter.dart';
 
 class CatResourcesWebViewPage extends StatefulWidget {
-  const CatResourcesWebViewPage({super.key, required this.url});
+  const CatResourcesWebViewPage({super.key, required this.url, required this.title});
   final String url;
+  final String title;
 
   @override
   State<CatResourcesWebViewPage> createState() => _CatResourcesWebViewPageState();
@@ -60,7 +61,7 @@ class _CatResourcesWebViewPageState extends State<CatResourcesWebViewPage> {
   @override
   Widget build(BuildContext context) {
     return AppBasePage(
-      title: 'ss',
+      title: widget.title,
       paddingBody: EdgeInsets.zero,
       bodyWidget:
           _hasError

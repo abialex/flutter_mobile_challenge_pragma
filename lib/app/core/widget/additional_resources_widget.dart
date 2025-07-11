@@ -23,7 +23,7 @@ class AdditionalResourcesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.pushNamed(AppRoutes.catResourcesWebView.name, extra: url);
+        context.pushNamed(AppRoutes.catResourcesWebView.name, extra: {"url": url, "title": title});
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
