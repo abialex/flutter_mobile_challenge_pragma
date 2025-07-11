@@ -10,8 +10,8 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/cat_card.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/text_form_field.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_mobile_challenge_pragma/app/config/widget/http_error_listener/http_error_bloc/http_error_event.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class LeadingPage extends StatefulWidget {
   const LeadingPage({super.key});
@@ -48,7 +48,7 @@ class _LeadingPageState extends State<LeadingPage> {
             failure: (value) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(value.error),
+                  content: AppConstText.mediumText(text: value.error),
                   behavior: SnackBarBehavior.floating,
                   backgroundColor: AppConstColors.red,
                   duration: const Duration(seconds: 2),

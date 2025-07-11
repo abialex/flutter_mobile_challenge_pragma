@@ -5,6 +5,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_ro
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class CatCard extends StatelessWidget {
   const CatCard({super.key, required this.catItem});
@@ -97,18 +98,20 @@ class CatCard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          catItem.name,
-                          style: TextStyle(color: AppConstColors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                        AppConstText.extraLargeText(
+                          text: catItem.name,
+                          color: AppConstColors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                         SizedBox(height: 2),
                         Row(
                           children: [
                             Icon(Icons.location_pin, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
-                            Text(
-                              catItem.origin,
-                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                            AppConstText.smallText(
+                              text: catItem.origin,
+                              color: AppConstColors.white,
+                              fontWeight: FontWeight.w500,
                             ),
                           ],
                         ),
@@ -116,9 +119,10 @@ class CatCard extends StatelessWidget {
                           children: [
                             Icon(Icons.watch_later, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
-                            Text(
-                              '${catItem.lifeSpan} años',
-                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                            AppConstText.smallText(
+                              text: '${catItem.lifeSpan} años',
+                              color: AppConstColors.white,
+                              fontWeight: FontWeight.w500,
                             ),
                           ],
                         ),
@@ -166,7 +170,7 @@ class CatCard extends StatelessWidget {
                             children: [
                               Icon(Icons.pets, color: AppConstColors.pink),
                               SizedBox(width: 8),
-                              Text('Temperamento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                              AppConstText.mediumText(text: 'Temperamento', fontWeight: FontWeight.bold),
                             ],
                           ),
                           Wrap(
@@ -180,9 +184,9 @@ class CatCard extends StatelessWidget {
                               (value) => Chip(
                                 backgroundColor: AppConstColors.white,
                                 labelPadding: EdgeInsets.zero,
-                                label: Text(
-                                  catItem.temperamentList[value],
-                                  style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                                label: AppConstText.miniText(
+                                  text: catItem.temperamentList[value],
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -245,7 +249,7 @@ class CatCard extends StatelessWidget {
             CircleAvatar(backgroundColor: color.withAlpha(100), child: Icon(icon, size: 25, color: color)),
 
             const SizedBox(width: 8),
-            Text(label, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
+            AppConstText.smallText(text: label, fontWeight: FontWeight.w600),
 
             // Expanded(
             //   child: Column(
@@ -262,7 +266,7 @@ class CatCard extends StatelessWidget {
             //   ),
             // ),
             const SizedBox(width: 8),
-            Text('$value/5', style: const TextStyle(fontWeight: FontWeight.w600)),
+            AppConstText.mediumText(text: '$value/5', fontWeight: FontWeight.w600),
           ],
         ),
       ),

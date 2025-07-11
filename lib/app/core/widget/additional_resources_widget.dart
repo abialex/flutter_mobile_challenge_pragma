@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class AdditionalResourcesWidget extends StatelessWidget {
   const AdditionalResourcesWidget({
@@ -30,11 +31,8 @@ class AdditionalResourcesWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  title,
-                  style: const TextStyle(fontSize: 16, color: AppConstColors.white, fontWeight: FontWeight.bold),
-                ),
-                Text(subtitle, style: const TextStyle(fontSize: 14, color: AppConstColors.white)),
+                AppConstText.mediumText(text: title, color: AppConstColors.white, fontWeight: FontWeight.bold),
+                AppConstText.smallText(text: subtitle, color: AppConstColors.white),
               ],
             ),
           ],

@@ -7,6 +7,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/additional_resou
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class CatDetailPage extends StatelessWidget {
   const CatDetailPage({super.key, required this.catDetail});
@@ -91,18 +92,20 @@ class CatDetailPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          catDetail.name,
-                          style: TextStyle(color: AppConstColors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                        AppConstText.extraLargeText(
+                          text: catDetail.name,
+                          color: AppConstColors.white,
+                          fontWeight: FontWeight.bold,
                         ),
                         SizedBox(height: 2),
                         Row(
                           children: [
                             Icon(Icons.location_pin, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
-                            Text(
-                              catDetail.origin,
-                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                            AppConstText.smallText(
+                              text: catDetail.origin,
+                              color: AppConstColors.white,
+                              fontWeight: FontWeight.w500,
                             ),
                           ],
                         ),
@@ -110,9 +113,10 @@ class CatDetailPage extends StatelessWidget {
                           children: [
                             Icon(Icons.watch_later, color: AppConstColors.white, size: 18),
                             SizedBox(width: 4),
-                            Text(
-                              '${catDetail.lifeSpan} años',
-                              style: TextStyle(color: AppConstColors.white, fontSize: 14, fontWeight: FontWeight.w500),
+                            AppConstText.smallText(
+                              text: '${catDetail.lifeSpan} años',
+                              color: AppConstColors.white,
+                              fontWeight: FontWeight.w500,
                             ),
                           ],
                         ),
@@ -135,14 +139,16 @@ class CatDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
 
                       children: [
-                        Text(
-                          'Description:',
-                          style: TextStyle(color: AppConstColors.black87, fontSize: 20, fontWeight: FontWeight.bold),
+                        AppConstText.largeText(
+                          text: 'Description:',
+                          color: AppConstColors.black87,
+                          fontWeight: FontWeight.bold,
                         ),
                         SizedBox(height: 8),
-                        Text(
-                          catDetail.description,
-                          style: TextStyle(color: AppConstColors.black87, fontSize: 12, fontWeight: FontWeight.w400),
+                        AppConstText.miniText(
+                          text: catDetail.description,
+                          color: AppConstColors.black87,
+                          fontWeight: FontWeight.w400,
                         ),
                       ],
                     ),
@@ -192,9 +198,10 @@ class CatDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
 
                       children: [
-                        Text(
-                          'Temperamento',
-                          style: TextStyle(color: AppConstColors.black87, fontSize: 20, fontWeight: FontWeight.bold),
+                        AppConstText.largeText(
+                          text: 'Temperamento',
+                          color: AppConstColors.black87,
+                          fontWeight: FontWeight.bold,
                         ),
                         SizedBox(height: 8),
                         Wrap(
@@ -204,9 +211,9 @@ class CatDetailPage extends StatelessWidget {
                             (value) => Chip(
                               backgroundColor: AppConstColors.white,
                               labelPadding: EdgeInsets.zero,
-                              label: Text(
-                                catDetail.temperamentList[value],
-                                style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                              label: AppConstText.miniText(
+                                text: catDetail.temperamentList[value],
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -218,7 +225,7 @@ class CatDetailPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const Text("Personality trait", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        AppConstText.titleMedium(text: "Personality trait", fontWeight: FontWeight.bold),
                         SizedBox(height: 12),
                         CharacteristicsLevelWidget(
                           label: 'Affection',
@@ -252,7 +259,7 @@ class CatDetailPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        const Text("Health and Care", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        AppConstText.titleMedium(text: "Health and Care", fontWeight: FontWeight.bold),
                         SizedBox(height: 12),
                         if (catDetail.cfaUrl != null)
                           AdditionalResourcesWidget(
@@ -313,8 +320,8 @@ class CatDetailPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             CircleAvatar(backgroundColor: color, child: icon),
-            Text(text, style: TextStyle(fontWeight: FontWeight.bold)),
-            Text(description),
+            AppConstText.mediumText(text: text, fontWeight: FontWeight.bold),
+            AppConstText.smallText(text: description),
           ],
         ),
       ),

@@ -4,6 +4,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.
 import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class AppHeaderPage extends StatelessWidget {
   const AppHeaderPage({super.key, required this.title});
@@ -41,7 +42,7 @@ class AppHeaderPage extends StatelessWidget {
                       : SizedBox.shrink(),
             ),
           ), // Spacer to center the title
-          Text(title, style: TextStyle(color: AppConstColors.white, fontSize: 22, fontWeight: FontWeight.bold)),
+          AppConstText.largeText(text: title, color: AppConstColors.white, fontWeight: FontWeight.bold),
           Expanded(child: Container()), // Spacer to center the title
           // Icon(Icons.search, color: AppConstColors.black, size: 28),
         ],

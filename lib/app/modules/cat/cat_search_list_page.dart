@@ -8,6 +8,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/cat_card.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/text_form_field.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class CatSearchListPage extends StatefulWidget {
   const CatSearchListPage({super.key, this.searchQuery});
@@ -62,9 +63,10 @@ class _CatSearchListPageState extends State<CatSearchListPage> {
                   }
                   if (catsCurrent.isEmpty) {
                     return Center(
-                      child: Text(
-                        'No cats found',
-                        style: TextStyle(color: AppConstColors.white, fontWeight: FontWeight.bold, fontSize: 32),
+                      child: AppConstText.hugeText(
+                        text: 'No cats found',
+                        color: AppConstColors.white,
+                        fontWeight: FontWeight.bold,
                       ),
                     );
                   }
