@@ -3,12 +3,15 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/keyboard_visibility_listener/keyboard_visibility_listener.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_listener/app_lifecycle_listener.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_gif.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/cubit/mode_theme_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_go_router.dart';
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/http_error_listener/http_error_listener.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/theme/app_theme.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -42,7 +45,9 @@ class _AppState extends State<App> {
       ],
       routerConfig: appRouter,
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData.dark(),
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: context.watch<ModeThemeCubit>().state ? ThemeMode.dark : ThemeMode.light,
       scrollBehavior: const MaterialScrollBehavior().copyWith(
         dragDevices: {
           PointerDeviceKind.mouse,
