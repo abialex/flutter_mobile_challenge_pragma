@@ -14,4 +14,5 @@ class HttpErrorEvent with _$HttpErrorEvent {
   factory HttpErrorEvent.manyRequest() = ManyRequestEvent;
   factory HttpErrorEvent.unavailableService() = UnavailableServiceEvent;
   factory HttpErrorEvent.otherError() = OtherErrorEvent;
+  factory HttpErrorEvent.webViewError(String error) = WebViewErrorEvent;
 }

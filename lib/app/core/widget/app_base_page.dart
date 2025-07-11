@@ -9,11 +9,12 @@ import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_header_page.
 import 'package:go_router/go_router.dart';
 
 class AppBasePage extends StatelessWidget {
-  const AppBasePage({super.key, this.title, this.headerWidget, this.bodyWidget, this.footerWidget});
+  const AppBasePage({super.key, this.title, this.headerWidget, this.bodyWidget, this.footerWidget, this.paddingBody});
   final Widget? headerWidget;
   final Widget? bodyWidget;
   final Widget? footerWidget;
   final String? title;
+  final EdgeInsets? paddingBody;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,9 @@ class AppBasePage extends StatelessWidget {
             if (bodyWidget == null)
               const SizedBox.shrink()
             else
-              Expanded(child: Padding(padding: EdgeInsets.symmetric(horizontal: 24.0), child: bodyWidget!)),
+              Expanded(
+                child: Padding(padding: paddingBody ?? EdgeInsets.symmetric(horizontal: 24.0), child: bodyWidget!),
+              ),
             if (footerWidget == null) const SizedBox.shrink() else footerWidget!,
           ],
         ),

@@ -4,6 +4,7 @@ import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_ro
 import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_routes_enum.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
 import 'package:flutter_mobile_challenge_pragma/app/modules/cat/cat_detail_page.dart';
+import 'package:flutter_mobile_challenge_pragma/app/modules/cat/cat_resources_webview_page.dart';
 import 'package:flutter_mobile_challenge_pragma/app/modules/cat/cat_search_list_page.dart';
 import 'package:flutter_mobile_challenge_pragma/app/modules/leading/leading_page.dart';
 import 'package:flutter_mobile_challenge_pragma/app/modules/splash/splash_page.dart';
@@ -40,6 +41,14 @@ final GoRouter appRouter = GoRouter(
       pageBuilder: (context, state) {
         final cat = state.extra as CatItemListDataModel;
         return _fadeTransition(state, AppBackMobilHandler(child: CatDetailPage(catDetail: cat)));
+      },
+    ),
+    GoRoute(
+      path: AppRoutes.catResourcesWebView.path,
+      name: AppRoutes.catResourcesWebView.name,
+      pageBuilder: (context, state) {
+        final url = state.extra as String;
+        return _fadeTransition(state, AppBackMobilHandler(child: CatResourcesWebViewPage(url: url)));
       },
     ),
   ],

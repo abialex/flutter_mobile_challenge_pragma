@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/router/go_router/app_routes_enum.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
+import 'package:go_router/go_router.dart';
 
 class AdditionalResourcesWidget extends StatelessWidget {
   const AdditionalResourcesWidget({
@@ -20,7 +22,9 @@ class AdditionalResourcesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(AppRoutes.catResourcesWebView.name, extra: url);
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
         padding: const EdgeInsets.all(16),
