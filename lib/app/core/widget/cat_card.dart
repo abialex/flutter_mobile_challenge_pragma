@@ -228,7 +228,7 @@ class CatCard extends StatelessWidget {
                       AppConstColors.yellow700,
                       Icons.energy_savings_leaf_outlined,
                     ),
-                    _buildAttributeRow('Afecto', catItem.strangerFriendly, AppConstColors.red, Icons.favorite),
+                    _buildAttributeRow('Afecto', catItem.affectionLevel, AppConstColors.red, Icons.favorite),
                   ],
                 ),
                 AppBox.h8,
