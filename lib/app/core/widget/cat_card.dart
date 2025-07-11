@@ -183,7 +183,7 @@ class CatCard extends StatelessWidget {
                             children: List.generate(
                               catItem.temperamentList.length.clamp(0, 3),
                               (value) => Chip(
-                                backgroundColor: AppConstColors.white,
+                                backgroundColor: Theme.of(context).cardColor,
                                 labelPadding: EdgeInsets.zero,
                                 label: AppConstText.miniText(
                                   text: catItem.temperamentList[value],

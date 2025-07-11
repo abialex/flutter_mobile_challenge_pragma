@@ -140,17 +140,9 @@ class CatDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
 
                       children: [
-                        AppConstText.largeText(
-                          text: 'Description:',
-                          color: AppConstColors.black87,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        AppConstText.largeText(text: 'Description:', fontWeight: FontWeight.bold),
                         AppBox.h8,
-                        AppConstText.miniText(
-                          text: catDetail.description,
-                          color: AppConstColors.black87,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        AppConstText.miniText(text: catDetail.description, fontWeight: FontWeight.w400),
                       ],
                     ),
                   ),
@@ -166,28 +158,29 @@ class CatDetailPage extends StatelessWidget {
                     ),
                     children: [
                       _buildCaracteristica(
+                        context,
                         color: AppConstColors.yellow700,
                         description: '${catDetail.weight.imperial} lbs',
                         icon: Icon(Icons.monitor_weight, color: AppConstColors.white, size: 25),
                         text: 'Weight',
                       ),
                       _buildCaracteristica(
+                        context,
                         color: AppConstColors.green,
-
                         description: '${catDetail.lifeSpan} years',
                         icon: Icon(Icons.timer_sharp, color: AppConstColors.white, size: 25),
                         text: 'Life span',
                       ),
                       _buildCaracteristica(
+                        context,
                         color: AppConstColors.red,
-
                         description: catDetail.indoor == 1 ? 'Yes' : 'No',
                         icon: Icon(Icons.home, color: AppConstColors.white, size: 25),
                         text: 'Homelike',
                       ),
                       _buildCaracteristica(
+                        context,
                         color: AppConstColors.blue,
-
                         description: catDetail.suppressedTail == 1 ? 'Yes' : 'No',
                         icon: Icon(FontAwesomeIcons.scissors, color: AppConstColors.white, size: 20),
                         text: 'Suppressed tail',
@@ -199,18 +192,14 @@ class CatDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
 
                       children: [
-                        AppConstText.largeText(
-                          text: 'Temperamento',
-                          color: AppConstColors.black87,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        AppConstText.largeText(text: 'Temperamento', fontWeight: FontWeight.bold),
                         AppBox.h8,
                         Wrap(
                           spacing: 4,
                           children: List.generate(
                             catDetail.temperamentList.length,
                             (value) => Chip(
-                              backgroundColor: AppConstColors.white,
+                              backgroundColor: Theme.of(context).cardColor, // Compatible con light y dark mode
                               labelPadding: EdgeInsets.zero,
                               label: AppConstText.miniText(
                                 text: catDetail.temperamentList[value],
@@ -307,14 +296,18 @@ class CatDetailPage extends StatelessWidget {
     );
   }
 
-  Widget _buildCaracteristica({
+  Widget _buildCaracteristica(
+    BuildContext context, {
     required Widget icon,
     required String text,
     required String description,
     required Color color,
   }) {
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10)), color: AppConstColors.white),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Theme.of(context).cardColor,
+      ),
       child: Center(
         child: Column(
           spacing: 4,

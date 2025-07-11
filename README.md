@@ -10,11 +10,13 @@
 
 ## 🐾 Vista previa
 
+
 <p align="center">
-  <img src="https://i.postimg.cc/BbYX6TRC/temp-Imagesxz4zg.avif" alt="Demo 1" width="300"/>
+  <img src="https://github.com/user-attachments/assets/df1ebcd3-3c22-4933-a35a-d1aa8d408813" alt="cat_list" width="300"/>
   &nbsp;&nbsp;
-  <img src="https://i.postimg.cc/7PG6Mzvj/temp-Imaget-TJo-RR.avif" alt="Demo 2" width="300"/>
+  <img src="https://github.com/user-attachments/assets/df560496-cfb8-4d3c-a62a-d7ebf4c8128b" alt="cat_detail" width="300"/>
 </p>
+
 
 ## Requisitos
 
@@ -69,7 +71,7 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
     flutter run --flavor production --target lib/main_production.dart
     ```
 
-    O agregar estes configuracion al launch.json
+    O agregar esta configuración al launch.json
 
     ```bash
     {
@@ -111,7 +113,7 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
 ### 1. Arquitectura y Manejo de Estado
 
 - **BLoC:** Manejo de estado reactivo y desacoplado de la UI para mayor modularidad.
-- **Freezed:** Generación de clases inmutables y union types para estados/eventos, reduciendo código repetitivo
+- **Freezed:** Generación de clases inmutables y union types para estados/eventos, reduciendo código repetitivo.
 
 ### 2. Navegación
 
@@ -135,6 +137,14 @@ Sigue estos pasos para poner en marcha el proyecto en tu entorno local:
 - **`Image.network` con `frameBuilder`:** Controla el proceso de carga mostrando indicadores personalizados mientras se descarga la imagen.
 - **`precacheImage`:** Precarga el GIF de carga (`AppConstGif.loading_cat`) al inicio para evitar el _cuadro en blanco_ y mejorar la fluidez visual.
 
+## 🤖 Herramientas de Inteligencia Artificial Utilizadas
+
+| Herramienta  | Propósito                                                                                                                                                                |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **ChatGPT**  | Generación de ejemplos de implementación de widgets personalizados, mejorar la estructura de los commits y generar colores e imágenes alineadas con el diseño de la app. |
+| **Canva AI** | Generación de interfaces de usuario (UI)                                                                                                                                 |
+| **Cursor**   | Automatización de tareas repetitivas en el editor, refactorización de código y mejora en la reutilización de componentes                                                 |
+
 ## 📁 Estructura del Proyecto
 
 El proyecto sigue una estructura modular y limpia, separando las responsabilidades en distintas capas:
@@ -149,7 +159,7 @@ lib/                        # Carpeta raíz del proyecto Flutter
 │   ├── modules/            # Módulos funcionales de la app (cat, home, splash, etc.)
 │
 │   ├── app.dart            # Widget raíz de la aplicación
-│   └── main.dart           # Punto de entrada por defecto (producción)
+│   └── main.dart           # Punto de entrada
 │
 ├── main_development.dart   # Punto de entrada para entorno de desarrollo
 ├── main_production.dart    # Punto de entrada para entorno de producción

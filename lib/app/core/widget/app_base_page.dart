@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/cubit/mode_theme_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_header_page.dart';
 import 'package:go_router/go_router.dart';
@@ -20,7 +21,12 @@ class AppBasePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage(AppConstImage.background_body), fit: BoxFit.cover),
+        image: DecorationImage(
+          image: AssetImage(
+            context.watch<ModeThemeCubit>().state ? AppConstImage.background_body_dark : AppConstImage.background_body,
+          ),
+          fit: BoxFit.cover,
+        ),
       ),
       child: Scaffold(
         floatingActionButton:

@@ -8,6 +8,7 @@ import 'package:flutter_mobile_challenge_pragma/app/config/widget/lifecycle_list
 import 'package:flutter_mobile_challenge_pragma/app/config/widget/http_error_listener/http_error_bloc/http_error_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/cubit/mode_theme_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getItApp = GetIt.instance;
@@ -24,6 +25,7 @@ class Main extends StatelessWidget {
         BlocProvider(create: (context) => CatBloc()),
         BlocProvider(create: (context) => getItApp<CanPopCubit>()),
         BlocProvider(create: (context) => getItApp<HttpErrorBloc>()),
+        BlocProvider(create: (context) => ModeThemeCubit()),
       ],
       child: const SafeArea(child: App()),
     );
