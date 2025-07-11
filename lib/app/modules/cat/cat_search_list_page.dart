@@ -3,13 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_event.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/bloc/cats_bloc/cat_list_state.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_base_page.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/cat_card.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/text_form_field.dart';
 import 'package:flutter_mobile_challenge_pragma/app/domain/models/cat_item_list_data_model.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
 class CatSearchListPage extends StatefulWidget {
   const CatSearchListPage({super.key, this.searchQuery});
@@ -54,19 +51,18 @@ class _CatSearchListPageState extends State<CatSearchListPage> {
                 context.read<CatBloc>().add(CatEvent.catBySearch(value));
               },
             ),
-            AppBox.h10,
+            SizedBox(height: 10),
             Expanded(
               child: BlocBuilder<CatBloc, CatState>(
                 builder: (context, state) {
                   if (state is CatLoadingState) {
-                    return Center(child: CircularProgressIndicator(color: AppConstColors.white));
+                    return Center(child: CircularProgressIndicator(color: Colors.white));
                   }
                   if (catsCurrent.isEmpty) {
                     return Center(
-                      child: AppConstText.hugeText(
-                        text: 'No cats found',
-                        color: AppConstColors.white,
-                        fontWeight: FontWeight.bold,
+                      child: Text(
+                        'No cats found',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 32),
                       ),
                     );
                   }

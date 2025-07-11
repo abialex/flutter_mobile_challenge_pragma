@@ -1,10 +1,12 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_header_page.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_box.dart';
+import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_header_page.dart';
+import 'package:go_router/go_router.dart';
 
 class AppBasePage extends StatelessWidget {
   const AppBasePage({super.key, this.title, this.headerWidget, this.bodyWidget, this.footerWidget});
@@ -20,7 +22,16 @@ class AppBasePage extends StatelessWidget {
         image: DecorationImage(image: AssetImage(AppConstImage.background_body), fit: BoxFit.cover),
       ),
       child: Scaffold(
-        backgroundColor: AppConstColors.transparent,
+        floatingActionButton:
+            context.watch<CanPopCubit>().state
+                ? FloatingActionButton(
+                  onPressed: () {
+                    context.pop(context);
+                  },
+                  child: Icon(Icons.arrow_back),
+                )
+                : null,
+        backgroundColor: Colors.transparent,
         body: Column(
           children: [
             if (title != null && title!.isNotEmpty)

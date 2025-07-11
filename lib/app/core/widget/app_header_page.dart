@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_image.dart';
-import 'package:flutter_mobile_challenge_pragma/app/core/cubit/can_pop_cubit.dart';
-import 'package:go_router/go_router.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/consts/app_const_colors.dart';
 import 'package:flutter_mobile_challenge_pragma/app/core/widget/app_const_text.dart';
 
@@ -25,26 +22,9 @@ class AppHeaderPage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Center(
-              child:
-                  context.watch<CanPopCubit>().state
-                      ? CircleAvatar(
-                        radius: 15,
-                        child: IconButton(
-                          padding: EdgeInsets.zero,
-                          onPressed: () {
-                            context.pop();
-                          },
-                          icon: Icon(Icons.arrow_left_rounded, size: 25),
-                        ),
-                      )
-                      : SizedBox.shrink(),
-            ),
-          ), // Spacer to center the title
+          Spacer(),
           AppConstText.largeText(text: title, color: AppConstColors.white, fontWeight: FontWeight.bold),
-          Expanded(child: Container()), // Spacer to center the title
-          // Icon(Icons.search, color: AppConstColors.black, size: 28),
+          Spacer(), // Icon(Icons.search, color: AppConstColors.black, size: 28),
         ],
       ),
     );
