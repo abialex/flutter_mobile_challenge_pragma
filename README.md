@@ -10,11 +10,13 @@
 
 ## 🐾 Vista previa
 
+
 <p align="center">
-  <img src="https://i.postimg.cc/BbYX6TRC/temp-Imagesxz4zg.avif" alt="Demo 1" width="300"/>
+  <img src="https://github.com/user-attachments/assets/df1ebcd3-3c22-4933-a35a-d1aa8d408813" alt="cat_list" width="300"/>
   &nbsp;&nbsp;
-  <img src="https://i.postimg.cc/7PG6Mzvj/temp-Imaget-TJo-RR.avif" alt="Demo 2" width="300"/>
+  <img src="https://github.com/user-attachments/assets/df560496-cfb8-4d3c-a62a-d7ebf4c8128b" alt="cat_detail" width="300"/>
 </p>
+
 
 ## Requisitos
 
