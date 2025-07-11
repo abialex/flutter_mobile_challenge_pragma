@@ -42,9 +42,8 @@ class DioHeaderInterceptor extends Interceptor {
       default:
         httpErrorBloc.add(HttpErrorEvent.otherError());
     }
-    final response = await dio.fetch(err.requestOptions);
-    return handler.resolve(response);
-
-    // return handler.reject(err);
+    //final response = await dio.fetch(err.requestOptions);
+    //return handler.resolve(response);
+    return handler.reject(err);
   }
 }
