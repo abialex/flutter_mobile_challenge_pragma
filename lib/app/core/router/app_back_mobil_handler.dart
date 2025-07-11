@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -17,13 +18,19 @@ class AppBackMobilHandler extends StatelessWidget {
 
       onPopInvokedWithResult: (didPop, result) async {
         if (didPop) return;
-        print('🔙 BackButtonHandler activado!'); // Debug
+        if (kDebugMode) {
+          print('🔙 BackButtonHandler activado!');
+        } // Debug
         // Verificar si hay páginas anteriores en GoRouter
         if (context.canPop()) {
-          print('⬅️ GoRouter navegando hacia atrás...'); // Debug
+          if (kDebugMode) {
+            print('⬅️ GoRouter navegando hacia atrás...');
+          } // Debug
           context.pop();
         } else {
-          print('🚪 GoRouter mostrando diálogo de salida...'); // Debug
+          if (kDebugMode) {
+            print('🚪 GoRouter mostrando diálogo de salida...');
+          } // Debug
           // Si no hay páginas anteriores, mostrar diálogo de salida
           bool shouldExit =
               await showDialog<bool>(
@@ -47,7 +54,6 @@ class AppBackMobilHandler extends StatelessWidget {
               false;
 
           if (shouldExit) {
-            print('🚪 Cerrando la app...'); // Debug
             SystemNavigator.pop(); // Cerrar la app
           }
         }
